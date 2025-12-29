@@ -1,0 +1,5 @@
+#LWP-Cookies-2.0
+Set-Cookie3: __Secure-STRP=AD6Dogszl1cMVBa7df1lK34kr9NxfJfqCu9jK2r5OPC5omIIeOLrvpwz5lyW9UcnOXmUZGT1Qz7LLVKRM07cjfz0vxBA0rclaA; path="/"; domain=".google.co.in"; path_spec; domain_dot; secure; expires="2025-12-29 22:51:14Z"; SameSite=strict; version=0
+Set-Cookie3: AEC="AaJma5sTQCFcCUaLgkudbenC26wV1uvZR-yHFugl77Sz7BmOJCQe3rRsfw"; path="/"; domain=".google.co.in"; path_spec; domain_dot; secure; expires="2026-06-27 22:46:11Z"; HttpOnly=None; SameSite=lax; version=0
+Set-Cookie3: NID="527=KXUJmCbchQmcq_dSnCOBwQAtZyc4Ewr-_9eW10lI3hs_ZkyJkJaqIVXjVu7gcerzHpIYz60tWtGCECNmRI1Esxd3DYQWdE1AZ8oGN73iS27Ld_wMBEdc2lxN73Si4xcPuLEKPWM_CR6_z1LRUvWhN_NVAiWvLhLYlqNX6qPx-uCloNmq7bbdrMYdXmjqt4-ZpcUzpjmw5Mo_LdTS-xuOzvgCXIXu59D4BziRErBO"; path="/"; domain=".google.co.in"; path_spec; domain_dot; expires="2026-06-30 22:46:11Z"; HttpOnly=None; version=0
+Set-Cookie3: __Secure-BUCKET=CNgH; path="/"; domain=".google.co.in"; path_spec; domain_dot; secure; expires="2026-06-27 22:46:11Z"; HttpOnly=None; version=0
