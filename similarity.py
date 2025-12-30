@@ -13,14 +13,14 @@ def check_similarity(text1,text2): #using TF-IDF(turn text to numbers) and Cosin
     #tdidf total frequency  * inverse document frequency
     char_vec  = TfidfVectorizer( #character similarity catching copypasre
         analyzer= "char_wb",
-        ngram_range= (4,8), #unigrams and bigrams, ie single words and word pairs
+        ngram_range= (3,6), 
         lowercase= True
     )
     char_score = _cosim(text1,text2,char_vec)
     
     word_vec = TfidfVectorizer(
         stop_words = "english", #ignore common filler words
-        ngram_range= (1,2) #one word and two words
+        ngram_range= (1,2) #one word two word
     )
     word_score = _cosim(text1,text2,word_vec)
     
