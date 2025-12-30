@@ -2,6 +2,9 @@ import requests
 from bs4 import BeautifulSoup as bs
 import random as rand
 from ddgs import DDGS
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 ddgs = DDGS()
 
