@@ -73,10 +73,4 @@ def get_scores(text1,text2,threshold):
 
 
 
-# print(check_similarity("""Climate change is one of the most serious challenges facing the modern world.
-# Rising global temperatures have resulted in more frequent heatwaves, stronger storms,
-# and the rapid melting of polar ice caps. Scientists warn that without immediate action,
-# the long-term effects of climate change could be devastating.""", """Climate change is among the most serious challenges facing today’s world.
-# Increasing global temperatures have resulted in more frequent heatwaves, stronger storms,
-# and rapid melting of polar ice caps. Researchers warn that without immediate action,
-# the long-term impacts of climate change could be devastating."""))
+
