@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 from ddgs import DDGS
 import time
+import similarity as sim
 
 ddgs = DDGS()
 
@@ -72,20 +73,38 @@ def get_articles(sample):
     query = sample
     urls = []
     bodys = []
-    results = ddgs.text(query,max_results=1)
+    body_scores = []
+    good_bodys = []
+    results = ddgs.text(query,max_results=4)
     
     for result in results:
         urls.append(result["href"])
     
     for url in urls:
-        body = get_body(url)
-        if not body:
+        try:
+            body = get_body(url)
+            if not body:
+                continue
+            if not is_error_page(body) and body and body.strip() :
+                if len(body) >= 150 and not boiler_plate_markers(body):
+                    bodys.append(body)
+        except requests.exceptions.ConnectionError:
             continue
-        if not is_error_page(body) and body and body.strip() :
-            if len(body) >= 150 and not boiler_plate_markers(body):
-                bodys.append(body)
         time.sleep(2)
-    return bodys
+    for body in bodys:
+        score =  sim.cheap_relevance(sample,body)
+        body_scores.append((score,body))
+        
+        
+    body_scores.sort()
+    if len(bodys) > 1:
+        good_bodys.append(body_scores[-1][1])
+        good_bodys.append(body_scores[-2][1])
+    else:
+        good_bodys = bodys
+        
+        
+    return good_bodys
         
         
 

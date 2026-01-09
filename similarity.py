@@ -72,5 +72,11 @@ def get_scores(text1,text2,threshold):
     
 
 
-
+def cheap_relevance(sample, body):
+    word_vec = TfidfVectorizer(
+        stop_words = "english", #ignore common filler words
+        ngram_range= (1,1) #one word 
+    )
+    score = _cosim(sample,body,word_vec)
+    return score
 

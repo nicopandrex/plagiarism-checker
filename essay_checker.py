@@ -14,7 +14,7 @@ def check_essay(a):
     return(article_list)
         
         
-print(check_essay("test.txt"))
+print(check_essay("test2.txt"))
     
     
     

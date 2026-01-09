@@ -14,5 +14,6 @@ def get_samples(text):
             samples = rand.sample(sentences,1)
         for sample in samples:
             clean_samples.append(sample)
+    print("Samples: " + str(len(clean_samples)))
     return clean_samples
         
