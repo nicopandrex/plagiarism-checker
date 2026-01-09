@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup as bs
 from ddgs import DDGS
 import time
 import similarity as sim
+import re
 
 ddgs = DDGS()
 
@@ -108,10 +109,31 @@ def get_articles(sample):
         
         
 
+def flatten_articles(articles_2d):
+    flat = []
+    for sub in articles_2d:
+        if not sub:
+            continue
+        for body in sub:
+            if body and body.strip():
+                flat.append(body)
+    return flat        
         
         
-        
-        
+def split_article_into_chunks(body):
+    # First try paragraph breaks
+    chunks = [p.strip() for p in body.split("\n\n") if p.strip()]
+
+    # If the page text is one giant blob, fallback:
+    if len(chunks) <= 1:
+        # Split into sentence-ish pieces, then bundle into ~3-5 sentences per chunk
+        sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", body) if s.strip()]
+        if not sents:
+            return []
+        bundle_size = 4
+        chunks = [" ".join(sents[i:i+bundle_size]) for i in range(0, len(sents), bundle_size)]
+
+    return chunks        
     
    
 

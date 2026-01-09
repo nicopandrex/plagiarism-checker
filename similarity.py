@@ -1,6 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
+import get_articles as art
 
 def _cosim(a,b,vectorizer):
     X = vectorizer.fit_transform([a,b])
@@ -34,6 +34,9 @@ def split_para(a):
     with open(a,"r", encoding="utf-8", errors = "replace") as file_a:
         para_a = file_a.read().strip().split("\n\n")
     return para_a
+
+
+    
 #getting coverage percent, basically how many paragraphs are suspiscious out of all the paragraphs, getting the highest score, and the top3 average score acrosss all paragraphs
 def get_scores(text1,text2,threshold):
     paras_a = split_para(text1)
@@ -79,4 +82,35 @@ def cheap_relevance(sample, body):
     )
     score = _cosim(sample,body,word_vec)
     return score
+
+
+def get_scores_articles(a,b,threshold):
+    paras_a = split_para(a)
+    paras_b = art.split_article_into_chunks(b)
+
+    suspicious = 0
+    max_score = 0.0
+    best_scores_per_para = []
+
+    for pa in paras_a:
+        best_pa = 0.0
+        for pb in paras_b:
+            score = check_similarity(pa, pb)
+            if score > best_pa:
+                best_pa = score
+
+        if best_pa >= threshold:
+            suspicious += 1
+
+        if best_pa > max_score:
+            max_score = best_pa
+
+        best_scores_per_para.append(best_pa)
+
+    best_scores_per_para.sort()
+    k = min(3, len(best_scores_per_para))
+    top_avg = (sum(best_scores_per_para[-k:]) / k) if k else 0.0
+    coverage = (suspicious / len(paras_a)) if paras_a else 0.0
+
+    return max_score, top_avg, coverage    
 
