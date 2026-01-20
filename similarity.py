@@ -4,7 +4,7 @@ import get_articles as art
 
 def _cosim(a,b,vectorizer):
     X = vectorizer.fit_transform([a,b])
-    return cosine_similarity(X[0],X[1])[0][0]
+    return float(cosine_similarity(X[0],X[1])[0][0])
 
 
 def check_similarity(text1,text2): #using TF-IDF(turn text to numbers) and Cosine Similarity(compare those numbers)
@@ -38,40 +38,40 @@ def split_para(a):
 
     
 #getting coverage percent, basically how many paragraphs are suspiscious out of all the paragraphs, getting the highest score, and the top3 average score acrosss all paragraphs
-def get_scores(text1,text2,threshold):
-    paras_a = split_para(text1)
-    paras_b = split_para(text2)
-    print(len(paras_a))
-    print(len(paras_b))
-    suspicious = 0
-    max_score = 0
-    scores = []
-    for pa in paras_a:
-        best_pa = 0
-        for pb in paras_b:
-            score = check_similarity(pa,pb)
-            best_pa = max(best_pa, score)
-        if best_pa >= threshold:
-                suspicious += 1
-        if best_pa >= max_score:
-            max_score = best_pa
-        scores.append(best_pa)
-    scores.sort() 
+# def get_scores(text1,text2,threshold):
+#     paras_a = split_para(text1)
+#     paras_b = split_para(text2)
+#     print(len(paras_a))
+#     print(len(paras_b))
+#     suspicious = 0
+#     max_score = 0
+#     scores = []
+#     for pa in paras_a:
+#         best_pa = 0
+#         for pb in paras_b:
+#             score = check_similarity(pa,pb)
+#             best_pa = max(best_pa, score)
+#         if best_pa >= threshold:
+#                 suspicious += 1
+#         if best_pa >= max_score:
+#             max_score = best_pa
+#         scores.append(best_pa)
+#     scores.sort() 
     
-    k = min(3,len(scores))
-    if not k:
-        top_avg = 0
-    else:
-        top_avg = sum(scores[-k:] ) / k
+#     k = min(3,len(scores))
+#     if not k:
+#         top_avg = 0
+#     else:
+#         top_avg = sum(scores[-k:] ) / k
     
-    if len(paras_a) > 0:
-        coverage = suspicious / len(paras_a)
-    else:
-        coverage = 0.0
-    print(max_score)
-    print(top_avg)
-    print(coverage)
-    return max_score,top_avg,coverage
+#     if len(paras_a) > 0:
+#         coverage = suspicious / len(paras_a)
+#     else:
+#         coverage = 0.0
+#     print(max_score)
+#     print(top_avg)
+#     print(coverage)
+#     return max_score,top_avg,coverage
     
 
 

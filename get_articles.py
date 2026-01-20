@@ -121,12 +121,12 @@ def flatten_articles(articles_2d):
         
         
 def split_article_into_chunks(body):
-    # First try paragraph breaks
+    #  try paragraph breaks
     chunks = [p.strip() for p in body.split("\n\n") if p.strip()]
 
-    # If the page text is one giant blob, fallback:
+    # if big text chunk:
     if len(chunks) <= 1:
-        # Split into sentence-ish pieces, then bundle into ~3-5 sentences per chunk
+        # Split into setneces, then bundle
         sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", body) if s.strip()]
         if not sents:
             return []
