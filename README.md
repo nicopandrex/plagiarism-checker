@@ -1,6 +1,6 @@
 # CUSTOM PYTHON PLAGIARISM CHECKER BY NICO 
 
-This is a pyhton project where I challenged myself to not use AI in its production. This checker isnt the fastest or the best, however, it was a great learning experience and authored soley by me!
+This is a python project where I challenged myself to not use AI in its production. This checker isnt the fastest or the best, however, it was a great learning experience and authored soley by me!
 The plagiarism checker focuses on similarity detection using **Total Frequency Inverse Document Frequency (TF-IDF) + Cosine Similarity to give a similarity score.** It does not measure intent or authorship.
 The checker is effective for both direct copy paste and paraphrasing and rewording.
 The checker measures 3 similarity scores: max score, top 3 average, coverage (fraction of document paragraphs exceeding a similarity threshold)
