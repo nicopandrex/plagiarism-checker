@@ -19,7 +19,9 @@ The checker measures 3 similarity scores: max score, top 3 average, coverage (fr
 Scores can range from 0.0 - 1.0:
 
 VERY LIKELY PLAGIARIZED: Highest scoring article w/ max score greater than .45 OR (any top3 avg greater than .3 AND coverage greater than .3)
+
 POSSIBLY PLAGIARIZED: Highest scoring article w/ max score greater than .22 and less than .45 or ( any top3 avg greater than .2 and less than .3 AND coverage greater than .2 and less than .3)
+
 UNLIKELY PLAGIARIZED: Highest scoring article w/ max score less than .22 or top avg AND coverage less than .2
 
 # How To Use
