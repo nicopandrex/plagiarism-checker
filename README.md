@@ -33,12 +33,15 @@ UNLIKELY PLAGIARIZED: Highest scoring article w/ max score less than .22 or top 
 # Example Runs
 
 **Short Original Text**
+
 <img width="789" height="239" alt="image" src="https://github.com/user-attachments/assets/5ba96058-fc74-4fa2-bca9-dbf602c9046a" />
 
 **Paraphrased Essay about WaterGate**
+
 <img width="813" height="318" alt="image" src="https://github.com/user-attachments/assets/2b875dd1-f6b2-436d-898f-9f530265f33b" />
 
 **Exact Watergate Speech**
+
 <img width="834" height="233" alt="image" src="https://github.com/user-attachments/assets/876f0a89-e712-4e57-8682-fffb146e4428" />
 
 
